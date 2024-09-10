@@ -1,5 +1,7 @@
-import Counter from "@/components/counter";
+"use client"
 import Navbar from "@/components/navbar";
+
+
 
 export default function Home () {
   return (
