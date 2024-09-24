@@ -60,6 +60,34 @@ export default function LogIn() {
         <div className="bg-gradient-to-b from-gray-600 to-black justify-center items-center h-screen w-screen flex flex-col relative">
             <h2 className="text-4xl font-medium text-white mb-10">Muzamil Baig</h2>
             <div className="p-5 border border-gray-300 rounded">
+
+                {/* form start*/}
+                <form onSubmit={formHandler} className="m-auto w-[50%] border p-10 bg-slate-800 text-blue-300" >
+            
+
+                <label className="ml- relative top-4">
+                    Email: <input type="email"
+                    placeholder="Email" 
+                    value={email}
+                    onChange={((e) => {setEmail(e.target.value)})}
+                    className="border"
+                    />
+                </label>
+
+                <label className=" relative top-4">
+                    Password: <input type="password"
+                    placeholder="Password" 
+                    value={pass}
+                    onChange={((e) => {setPass(e.target.value)})}
+                    className="border"
+                    />
+                </label>
+
+                <button type="submit" className="border-red-50 border-2 p-2 mt-10 ">login</button>
+                {err && <p className="text-red-700">{err}</p>}
+            </form>
+                {/* form end */}
+
                 <p className="text-sm font-medium text-gray-300 space-y-6 px-6 pb-4">
                     Don't Have An account?{" "}
                     <Link href="/register" className="text-blue-700 hover:underline">
