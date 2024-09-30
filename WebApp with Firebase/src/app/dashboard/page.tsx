@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import type { User } from "firebase/auth"
 import { doc, getDoc } from "firebase/firestore"
-
+import { getStorage, ref } from "firebase/storage";
 
 
 export default function Dashborad () {
     const [user, setUser] = useState<User | null>(null);
     const [userName, setUserName] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
+    const [file, setFile] = useState("");
     const router = useRouter();
 
     useEffect(() => {
@@ -70,6 +71,15 @@ export default function Dashborad () {
 
                 </div>
             </main>
+            <label>Upload: <input type="file" 
+                onChange={((e) => { 
+                let files = e.target.files
+                if(files) setFile(file[0])
+                    console.log(file)
+                // const spaceRef = ref(storage, 'images/space.jpg');   
+             })}
+             
+             /></label>
         </div> 
         </>
     )
